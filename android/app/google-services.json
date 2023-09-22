@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "306312144990",
+    "project_id": "vegi-8bb65",
+    "storage_bucket": "vegi-8bb65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306312144990:android:8861a8bd8244f348ebaccf",
+        "android_client_info": {
+          "package_name": "com.example.food_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_FlySai3a6gsH7yBALkMKLm41IhbQxNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
