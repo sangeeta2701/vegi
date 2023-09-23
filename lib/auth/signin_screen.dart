@@ -5,7 +5,7 @@ import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../screens/home_screen.dart';
+import '../screens/Home/home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -65,7 +65,7 @@ class _SignInScreenState extends State<SignInScreen> {
               BoxShadow(
                   blurRadius: 5,
                   // spreadRadius: 3,
-                  color: themeColor,
+                  color: greenColor,
                   offset: Offset(3, 3)),
             ]),
           ),
