@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(children: [
+        child: ListView(children: [
           Container(
             height: 150,
             decoration: BoxDecoration(
@@ -108,21 +108,46 @@ class _HomeScreenState extends State<HomeScreen> {
               color: gColor
             ),)
           ],),
-          height20,
+          height16,
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               
               children: [
               singleProductContainer("assets/images/img2.jpg","Fresh Basil"),
-              width16,
-              singleProductContainer("assets/images/img3.png","Fresh Mint"),
-              width16,
               singleProductContainer("assets/images/img4.png","Curry Leaves"),
-              width16,
+              singleProductContainer("assets/images/img3.png","Fresh Mint"),
               singleProductContainer("assets/images/img5.png","Lemongrass"),
             ],),
-          )
+          ),
+          height20,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            Text("Fresh Fruits",style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: bColor
+            ),),
+            Text("View All",style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: gColor
+            ),)
+          ],),
+          height16,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              
+              children: [
+              singleProductContainer("assets/images/img6.png","Fresh Apple"),
+              singleProductContainer("assets/images/img9.png","Semi Ripe Banana"),
+              singleProductContainer("assets/images/img7.png","Berries"),
+              singleProductContainer("assets/images/img8.png","Watermelon"),
+              
+            ],),
+          ),
         ]),
       ),
     );
@@ -130,6 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget singleProductContainer(String imag, String name) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: 8),
             height: 230,
             width: 150,
             decoration: BoxDecoration(
@@ -142,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: Image.asset(imag,height: 120,)),
-                  Text(name,style: TextStyle(fontSize: 18,color: bColor,fontWeight: FontWeight.w400),),
+                  Text(name,style: TextStyle(fontSize: 16,color: bColor,fontWeight: FontWeight.w500),),
                   height4,
                   Text("\$50/50gram",style: TextStyle(fontSize: 14,color: gColor,fontWeight: FontWeight.w400),),
                   height8,
