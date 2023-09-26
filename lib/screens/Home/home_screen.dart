@@ -109,36 +109,88 @@ class _HomeScreenState extends State<HomeScreen> {
             ),)
           ],),
           height20,
-          Row(children: [
-            Container(
-              height: 230,
-              width: 150,
-              decoration: BoxDecoration(
-                color: wColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(child: Image.asset("assets/images/img2.jpg")),
-                    Text("Fresh Basil",style: TextStyle(fontSize: 18,color: bColor,fontWeight: FontWeight.w400),),
-                    Text("\$50/50gram",style: TextStyle(fontSize: 14,color: gColor,fontWeight: FontWeight.w400),),
-                    height4,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(),
-                        Container(),
-                      ],)
-                  ],
-                ),
-              ),
-            ),
-          ],)
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              
+              children: [
+              singleProductContainer("assets/images/img2.jpg","Fresh Basil"),
+              width16,
+              singleProductContainer("assets/images/img3.png","Fresh Mint"),
+              width16,
+              singleProductContainer("assets/images/img4.png","Curry Leaves"),
+              width16,
+              singleProductContainer("assets/images/img5.png","Lemongrass"),
+            ],),
+          )
         ]),
       ),
     );
+  }
+
+  Widget singleProductContainer(String imag, String name) {
+    return Container(
+            height: 230,
+            width: 150,
+            decoration: BoxDecoration(
+              color: wColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 5),
+              child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(child: Image.asset(imag,height: 120,)),
+                  Text(name,style: TextStyle(fontSize: 18,color: bColor,fontWeight: FontWeight.w400),),
+                  height4,
+                  Text("\$50/50gram",style: TextStyle(fontSize: 14,color: gColor,fontWeight: FontWeight.w400),),
+                  height8,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 4),
+                          // color: gColor,
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: gColor.withOpacity(0.3),width: 1),
+                          ),
+                          child: Row(
+                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                            Expanded(child: Text("50 Gram",style: TextStyle(fontSize: 10,color: bColor,))),
+                            Center(child: Icon(Icons.arrow_drop_down,color: themeColor,))
+                          ],),
+                        ),
+                      ),
+                      width4,
+                      Expanded(
+                        child: Container(
+                          // color: themeColor,
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: gColor.withOpacity(0.3),width: 1),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                            Icon(Icons.remove,color: themeColor,size: 15,),
+                            Text("1"),
+                            Icon(Icons.add,color: themeColor,size: 15,),
+                          ],),
+                         
+                        ),
+                      ),
+                    ],)
+                ],
+              ),
+            ),
+          );
   }
 }
