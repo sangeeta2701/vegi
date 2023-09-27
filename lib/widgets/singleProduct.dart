@@ -4,7 +4,7 @@ import 'package:food_app/widgets/sizedBox.dart';
 import '../utils/colors.dart';
 
 
- Widget singleProductContainer(String imag, String name) {
+ Widget singleProductContainer(String imag, String name, VoidCallback ontap) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8),
       height: 230,
@@ -18,11 +18,14 @@ import '../utils/colors.dart';
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-                child: Image.asset(
-              imag,
-              height: 120,
-            )),
+            GestureDetector(
+              onTap: ontap,
+              child: Center(
+                  child: Image.asset(
+                imag,
+                height: 120,
+              )),
+            ),
             Text(
               name,
               style: TextStyle(
