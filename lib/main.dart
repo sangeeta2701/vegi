@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: themeColor,
-        scaffoldBackgroundColor: bgColor
+        scaffoldBackgroundColor: bgColor,
+        primarySwatch: Colors.amber,
       ),
       // home: SignInScreen(),
       home: HomeScreen(),

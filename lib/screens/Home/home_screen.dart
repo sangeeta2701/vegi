@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/screens/product/product_overview_screen.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
@@ -144,11 +145,16 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                singleProductContainer("assets/images/img2.jpg", "Fresh Basil",(){}),
+                singleProductContainer("assets/images/img2.jpg", "Fresh Basil",
+                    () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(),),);
+                }),
                 singleProductContainer(
-                    "assets/images/img4.png", "Curry Leaves",(){}),
-                singleProductContainer("assets/images/img3.png", "Fresh Mint",(){}),
-                singleProductContainer("assets/images/img5.png", "Lemongrass",(){}),
+                    "assets/images/img4.png", "Curry Leaves", () {}),
+                singleProductContainer(
+                    "assets/images/img3.png", "Fresh Mint", () {}),
+                singleProductContainer(
+                    "assets/images/img5.png", "Lemongrass", () {}),
               ],
             ),
           ),
@@ -173,15 +179,17 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                singleProductContainer("assets/images/img6.png", "Fresh Apple",(){}),
                 singleProductContainer(
-                    "assets/images/img9.png", "Semi Ripe Banana",(){}),
-                singleProductContainer("assets/images/img7.png", "Berries",(){}),
-                singleProductContainer("assets/images/img8.png", "Watermelon",(){}),
+                    "assets/images/img6.png", "Fresh Apple", () {}),
+                singleProductContainer(
+                    "assets/images/img9.png", "Semi Ripe Banana", () {}),
+                singleProductContainer(
+                    "assets/images/img7.png", "Berries", () {}),
+                singleProductContainer(
+                    "assets/images/img8.png", "Watermelon", () {}),
               ],
             ),
           ),
-
           height20,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -203,12 +211,16 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                singleProductContainer("assets/images/img10.png", "Red Beetroot",(){}),
-                 singleProductContainer("assets/images/img13.png", "Potato",(){}),
-                 singleProductContainer("assets/images/img12.png", "Fresh Radish",(){}),
                 singleProductContainer(
-                    "assets/images/img11.png", "Fresh Carrots",(){}),
-              singleProductContainer("assets/images/img14.png", "Green Onion",(){}),
+                    "assets/images/img10.png", "Red Beetroot", () {}),
+                singleProductContainer(
+                    "assets/images/img13.png", "Potato", () {}),
+                singleProductContainer(
+                    "assets/images/img12.png", "Fresh Radish", () {}),
+                singleProductContainer(
+                    "assets/images/img11.png", "Fresh Carrots", () {}),
+                singleProductContainer(
+                    "assets/images/img14.png", "Green Onion", () {}),
               ],
             ),
           ),
@@ -216,6 +228,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
- 
 }

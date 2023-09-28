@@ -5,4 +5,6 @@ Color bColor = Colors.black;
 Color wColor = Colors.white;
 Color gColor = Colors.grey;
 Color greenColor = Color.fromRGBO(2, 169, 89, 1);
-Color themeColor = Color(0xffd6b738);
+// Color themeColor = Color(0xffd6b738);
+Color themeColor = Colors.amber;
+
