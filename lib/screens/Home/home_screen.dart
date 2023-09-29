@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                singleProductContainer("assets/images/img2.jpg", "Fresh Basil",
+                singleProductContainer("assets/images/img2.png", "Fresh Basil",
                     () {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(),),);
                 }),
