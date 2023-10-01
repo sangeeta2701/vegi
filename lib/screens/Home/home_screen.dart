@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: bgColor,
-      drawer: drawerSide(),
+      drawer: DrawerSide(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: themeColor,
