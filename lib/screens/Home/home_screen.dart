@@ -147,14 +147,23 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 singleProductContainer("assets/images/img2.png", "Fresh Basil",
                     () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(),),);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Fresh Basil",productImage: "assets/images/img2.png",),),);
                 }),
                 singleProductContainer(
-                    "assets/images/img4.png", "Curry Leaves", () {}),
+                    "assets/images/img4.png", "Curry Leaves", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Curry Leaves",productImage: "assets/images/img4.png",),),);
+
+                    }),
                 singleProductContainer(
-                    "assets/images/img3.png", "Fresh Mint", () {}),
+                    "assets/images/img3.png", "Fresh Mint", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Fresh Mint",productImage: "assets/images/img3.png",),),);
+
+                    }),
                 singleProductContainer(
-                    "assets/images/img5.png", "Lemongrass", () {}),
+                    "assets/images/img5.png", "Lemongrass", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Lemongrass",productImage: "assets/images/img5.png",),),);
+
+                    }),
               ],
             ),
           ),
@@ -180,13 +189,23 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 singleProductContainer(
-                    "assets/images/img6.png", "Fresh Apple", () {}),
+                    "assets/images/img6.png", "Fresh Apple", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Fresh Apple",productImage: "assets/images/img6.png",),),);
+
+                    }),
                 singleProductContainer(
-                    "assets/images/img9.png", "Semi Ripe Banana", () {}),
+                    "assets/images/img9.png", "Semi Ripe Banana", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Semi Ripe Banana",productImage: "assets/images/img9.png",),),);
+
+                    }),
                 singleProductContainer(
-                    "assets/images/img7.png", "Berries", () {}),
+                    "assets/images/img7.png", "Berries", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Berries",productImage: "assets/images/img7.png",),),);
+                    }),
                 singleProductContainer(
-                    "assets/images/img8.png", "Watermelon", () {}),
+                    "assets/images/img8.png", "Watermelon", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Watermelon",productImage: "assets/images/img8.png",),),);
+                    }),
               ],
             ),
           ),
@@ -212,15 +231,25 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 singleProductContainer(
-                    "assets/images/img10.png", "Red Beetroot", () {}),
+                    "assets/images/img10.png", "Red Beetroot", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Red Beetroot",productImage: "assets/images/img10.png",),),);
+                    }),
                 singleProductContainer(
-                    "assets/images/img13.png", "Potato", () {}),
+                    "assets/images/img13.png", "Potato", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Potato",productImage: "assets/images/img13.png",),),);
+                    }),
                 singleProductContainer(
-                    "assets/images/img12.png", "Fresh Radish", () {}),
+                    "assets/images/img12.png", "Fresh Radish", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Fresh Radish",productImage: "assets/images/img12.png",),),);
+                    }),
                 singleProductContainer(
-                    "assets/images/img11.png", "Fresh Carrots", () {}),
+                    "assets/images/img11.png", "Fresh Carrots", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Fresh Carrots",productImage: "assets/images/img11.png",),),);
+                    }),
                 singleProductContainer(
-                    "assets/images/img14.png", "Green Onion", () {}),
+                    "assets/images/img14.png", "Green Onion", () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductOverviewScreen(productName: "Green Onion",productImage: "assets/images/img14.png",),),);
+                    }),
               ],
             ),
           ),

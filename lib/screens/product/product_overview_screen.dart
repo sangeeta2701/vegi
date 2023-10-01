@@ -5,7 +5,9 @@ import 'package:food_app/widgets/sizedBox.dart';
 enum SigninCharacter { fill, outline }
 
 class ProductOverviewScreen extends StatefulWidget {
-  const ProductOverviewScreen({super.key});
+  const ProductOverviewScreen({super.key,required this.productName,required this.productImage});
+  final String productName;
+  final String productImage;
 
   @override
   State<ProductOverviewScreen> createState() => _ProductOverviewScreenState();
@@ -38,13 +40,13 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               child: Column(
                 children: [
                   ListTile(
-                    title: Text("Fresh Basil"),
+                    title: Text(widget.productName),
                     subtitle: Text("\$50"),
                   ),
                   Container(
                     height: 280,
                     padding: EdgeInsets.all(20),
-                    child: Image.asset("assets/images/img2.png"),
+                    child: Image.asset(widget.productImage,),
                   ),
                   Container(
                     width: double.infinity,
@@ -81,17 +83,24 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                         ),
                         Text("\$50"),
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 30),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(color: gColor,width: 1)
-                          ),
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(color: gColor, width: 1)),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                            Icon(Icons.add,size: 17,color: themeColor,),
-                            Text("ADD",style: TextStyle(color: themeColor),)
-                          ]),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  size: 17,
+                                  color: themeColor,
+                                ),
+                                Text(
+                                  "ADD",
+                                  style: TextStyle(color: themeColor),
+                                )
+                              ]),
                         ),
                       ],
                     ),
@@ -100,19 +109,34 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               ),
             ),
           ),
-          Expanded(child: Container(
-            padding: EdgeInsets.symmetric(vertical: 12,horizontal: 20),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("About This Product",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600,color: bColor),),
-                height12,
-                Text("Fresh basil is a herb with a sweet smell that is used to add flavor in cooking. It is sold fresh and dried, but fresh basil is typically preferred for cooking. The leaves of basil are used fresh or dried to flavor meats, fish, salads, and sauces. When substituting dried basil for fresh, the general rule is to use one-third the amount of dried basil¹.",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: bColor,height: 1.4),textAlign: TextAlign.justify,)
-
-              ],
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "About This Product",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: bColor),
+                  ),
+                  height12,
+                  Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: bColor,
+                        height: 1.4),
+                    textAlign: TextAlign.justify,
+                  )
+                ],
+              ),
             ),
-          ),),
+          ),
         ],
       ),
     );
