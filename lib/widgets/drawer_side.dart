@@ -151,7 +151,7 @@ Widget drawerItemList(
     ),
     title: Text(
       title,
-      style: TextStyle(color: bColor.withOpacity(0.4)),
+      style: TextStyle(color: bColor.withOpacity(0.6)),
     ),
   );
 }
