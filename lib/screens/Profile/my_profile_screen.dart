@@ -25,7 +25,7 @@ class MyProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 100,
+                  height: 80,
                   color: themeColor,
                 ),
                 Container(
