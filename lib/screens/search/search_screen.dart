@@ -37,7 +37,7 @@ class SearchScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   borderSide: BorderSide.none
                 ),
-                fillColor: Color.fromARGB(255, 225, 225, 225),
+                fillColor: Color.fromARGB(255, 234, 234, 234),
                 filled: true,
                 hintText: "Search for items in the store",
                 suffixIcon: Icon(Icons.search)
@@ -45,7 +45,9 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           height12,
-          // SearchItem(),
+          SearchItem(img: "assets/images/img3.png",),
+          SearchItem(img: "assets/images/img7.png",),
+          SearchItem(img: "assets/images/img11.png",),
         ],
       ),
     );
