@@ -19,6 +19,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         iconTheme: IconThemeData(color: bColor),
         title: Text(
           "Product Overview",
@@ -44,7 +45,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                     subtitle: Text("\$50"),
                   ),
                   Container(
-                    height: 280,
+                    height: 250,
                     padding: EdgeInsets.all(20),
                     child: Image.asset(widget.productImage,),
                   ),

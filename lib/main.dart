@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:food_app/screens/Home/home_screen.dart';
 import 'package:food_app/utils/colors.dart';
 
+// import 'auth/signin_screen.dart';
+
 void main() async {
  WidgetsFlutterBinding.ensureInitialized();
    await Firebase.initializeApp();

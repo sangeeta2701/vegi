@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/screens/product/product_overview_screen.dart';
+import 'package:food_app/screens/search/search_screen.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
@@ -28,13 +29,16 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontSize: 17, color: bColor),
         ),
         actions: [
-          CircleAvatar(
-            radius: 12,
-            backgroundColor: Color(0xffd4d181),
-            child: Icon(
-              Icons.search,
-              size: 17,
-              color: bColor,
+          GestureDetector(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(),),),
+            child: CircleAvatar(
+              radius: 12,
+              backgroundColor: Color(0xffd4d181),
+              child: Icon(
+                Icons.search,
+                size: 17,
+                color: bColor,
+              ),
             ),
           ),
           Padding(
@@ -71,10 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 130, bottom: 10),
+                        padding: const EdgeInsets.only(right: 120, bottom: 10),
                         child: Container(
-                          height: 40,
-                          width: 100,
+                          height: 35,
+                          width: 120,
                           decoration: BoxDecoration(
                             color: themeColor,
                             borderRadius: BorderRadius.only(
