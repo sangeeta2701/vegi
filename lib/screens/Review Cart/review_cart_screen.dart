@@ -21,15 +21,15 @@ class ReviewCartScreen extends StatelessWidget {
       body: ListView(
         children: [
           height12,
-          SingleItem(img: "assets/images/img3.png",),
-          SingleItem(img: "assets/images/img7.png",),
-          SingleItem(img: "assets/images/img11.png",),
+          SingleItem(img: "assets/images/img3.png",isBool: true,),
+          SingleItem(img: "assets/images/img7.png",isBool: true,),
+          SingleItem(img: "assets/images/img11.png",isBool: true,),
         ],
       ),
       bottomNavigationBar: ListTile(
         title: Text("Total Amount"),
         subtitle: Text("\$170.00",style: TextStyle(color: greenColor.withOpacity(0.9)),),
-        trailing: Container(
+        trailing: SizedBox(
           width: 150,
           child: MaterialButton(onPressed: (){},
           color: themeColor,

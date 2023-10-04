@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(),),),
             child: CircleAvatar(
               radius: 12,
-              backgroundColor: Color(0xffd4d181),
+              backgroundColor: Color.fromARGB(255, 241, 238, 159),
               child: Icon(
                 Icons.search,
                 size: 17,
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: CircleAvatar(
               radius: 12,
-              backgroundColor: Color(0xffd4d181),
+              backgroundColor: Color.fromARGB(255, 241, 238, 159),
               child: Icon(
                 Icons.shopping_bag_outlined,
                 size: 17,

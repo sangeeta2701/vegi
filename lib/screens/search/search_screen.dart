@@ -45,9 +45,9 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           height12,
-          SingleItem(img: "assets/images/img3.png",),
-          SingleItem(img: "assets/images/img7.png",),
-          SingleItem(img: "assets/images/img11.png",),
+          SingleItem(img: "assets/images/img3.png",isBool: false,),
+          SingleItem(img: "assets/images/img7.png",isBool: false,),
+          SingleItem(img: "assets/images/img11.png",isBool: false,),
         ],
       ),
     );
