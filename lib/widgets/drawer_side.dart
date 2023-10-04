@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:food_app/screens/Profile/my_profile_screen.dart';
+import 'package:food_app/screens/Review%20Cart/review_cart_screen.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
 import '../utils/colors.dart';
@@ -61,7 +62,10 @@ class DrawerSide extends StatelessWidget {
           drawerItemList(
               icon: Icons.shopping_bag_outlined,
               title: "Review Cart",
-              ontap: () {}),
+              ontap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewCartScreen(),),);
+
+              }),
           drawerItemList(
               icon: Icons.person_outlined,
               title: "My Profile",

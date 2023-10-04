@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
-class SearchItem extends StatelessWidget {
-  const SearchItem({super.key,required this.img});
+class SingleItem extends StatelessWidget {
+  const SingleItem({super.key,required this.img});
  final String img;
 
   @override
