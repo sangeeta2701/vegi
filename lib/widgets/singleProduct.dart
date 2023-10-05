@@ -4,7 +4,7 @@ import 'package:food_app/widgets/sizedBox.dart';
 import '../utils/colors.dart';
 
 
- Widget singleProductContainer(String imag, String name, VoidCallback ontap) {
+ Widget singleProductContainer(String imag, String name, VoidCallback ontap,int price) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8),
       height: 230,
@@ -21,7 +21,7 @@ import '../utils/colors.dart';
             GestureDetector(
               onTap: ontap,
               child: Center(
-                  child: Image.asset(
+                  child: Image.network(
                 imag,
                 height: 120,
               )),
@@ -33,7 +33,7 @@ import '../utils/colors.dart';
             ),
             height4,
             Text(
-              "\$50/50gram",
+              "$price\$ /50 Gram",
               style: TextStyle(
                   fontSize: 14, color: gColor, fontWeight: FontWeight.w400),
             ),

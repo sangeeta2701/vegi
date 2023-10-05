@@ -5,9 +5,11 @@ import 'package:food_app/widgets/sizedBox.dart';
 enum SigninCharacter { fill, outline }
 
 class ProductOverviewScreen extends StatefulWidget {
-  const ProductOverviewScreen({super.key,required this.productName,required this.productImage});
+  const ProductOverviewScreen(
+      {super.key, required this.productName, required this.productImage,required this.productPrice});
   final String productName;
   final String productImage;
+  final int productPrice;
 
   @override
   State<ProductOverviewScreen> createState() => _ProductOverviewScreenState();
@@ -47,7 +49,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                   Container(
                     height: 250,
                     padding: EdgeInsets.all(20),
-                    child: Image.asset(widget.productImage,),
+                    child: Image.asset(
+                      widget.productImage,
+                    ),
                   ),
                   Container(
                     width: double.infinity,
@@ -82,7 +86,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                                 })
                           ],
                         ),
-                        Text("\$50"),
+                        Text("\$${widget.productPrice}"),
                         Container(
                           padding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 30),
