@@ -44,12 +44,12 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 children: [
                   ListTile(
                     title: Text(widget.productName),
-                    subtitle: Text("\$50"),
+                    subtitle: Text("\$${widget.productPrice}"),
                   ),
                   Container(
                     height: 250,
                     padding: EdgeInsets.all(20),
-                    child: Image.asset(
+                    child: Image.network(
                       widget.productImage,
                     ),
                   ),
