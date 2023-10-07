@@ -21,9 +21,9 @@ class ReviewCartScreen extends StatelessWidget {
       body: ListView(
         children: [
           height12,
-          SingleItem(img: "assets/images/img3.png",isBool: true,),
-          SingleItem(img: "assets/images/img7.png",isBool: true,),
-          SingleItem(img: "assets/images/img11.png",isBool: true,),
+          // SingleItem(img: "assets/images/img3.png",isBool: true,),
+          // SingleItem(img: "assets/images/img7.png",isBool: true,),
+          // SingleItem(img: "assets/images/img11.png",isBool: true,),
         ],
       ),
       bottomNavigationBar: ListTile(
