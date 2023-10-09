@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:food_app/provider/user_provider.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 import '../screens/Home/home_screen.dart';
 
@@ -15,8 +17,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
- 
-
+  late UserProvider userProvider;
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<void> signup(BuildContext context) async {
@@ -33,6 +34,8 @@ class _SignInScreenState extends State<SignInScreen> {
       // Getting users credential
       UserCredential result = await auth.signInWithCredential(authCredential);
       User? user = result.user;
+      userProvider.addUserData(user!, user.displayName ?? "",
+          user.email ?? "", user.photoURL ?? "");
 
       // ignore: unnecessary_null_comparison
       if (result != null) {
@@ -46,6 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       body: Container(
         height: double.infinity,

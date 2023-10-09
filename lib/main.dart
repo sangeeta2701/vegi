@@ -1,12 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/provider/product_provider.dart';
+import 'package:food_app/provider/user_provider.dart';
 // import 'package:food_app/auth/signin_screen.dart';
 import 'package:food_app/screens/Home/home_screen.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:provider/provider.dart';
 
-// import 'auth/signin_screen.dart';
+import 'auth/signin_screen.dart';
 
 void main() async {
  WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +22,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ProductProvider>(
-      create: (context) => ProductProvider(),
+    //when we use multiple provider then we have to use multiprovider
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ProductProvider>(create: (context) => ProductProvider(),),
+        ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider(),),
+
+      ],
+      
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -30,8 +37,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: bgColor,
           primarySwatch: Colors.amber,
         ),
-        // home: SignInScreen(),
-        home: HomeScreen(),
+        home: SignInScreen(),
+        // home: HomeScreen(),
       ),
     );
   }
