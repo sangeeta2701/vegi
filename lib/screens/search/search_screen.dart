@@ -14,8 +14,17 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  String query = "";
+  searchItem(String query) {
+    List<ProductModel> searchFood = widget.search.where((element) {
+      return element.productName.toLowerCase().contains(query);
+    }).toList();
+    return searchFood;
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
@@ -38,6 +47,12 @@ class _SearchScreenState extends State<SearchScreen> {
             height: 50,
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
+              onChanged: (value) {
+                setState(() {
+                  print(value);
+                  query = value;
+                });
+              },
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -50,8 +65,12 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           height12,
           Column(
-            children: widget.search.map((data) {
-              return SingleItem(productImage: data.productImage, isBool: false, productName: data.productName, productPrice: data.productrice);
+            children: _searchItem.map((data) {
+              return SingleItem(
+                  productImage: data.productImage,
+                  isBool: false,
+                  productName: data.productName,
+                  productPrice: data.productrice);
             }).toList(),
           ),
           // SingleItem(

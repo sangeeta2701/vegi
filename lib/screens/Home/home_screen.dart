@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SearchScreen(search: [],),
+                builder: (context) => SearchScreen(search: productProvider.getAllProductSearch,),
               ),
             ),
             child: CircleAvatar(
