@@ -7,7 +7,7 @@ import 'package:food_app/screens/Home/home_screen.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:provider/provider.dart';
 
-import 'auth/signin_screen.dart';
+// import 'auth/signin_screen.dart';
 
 void main() async {
  WidgetsFlutterBinding.ensureInitialized();
@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: bgColor,
           primarySwatch: Colors.amber,
         ),
-        home: SignInScreen(),
-        // home: HomeScreen(),
+        // home: SignInScreen(),
+        home: HomeScreen(),
       ),
     );
   }

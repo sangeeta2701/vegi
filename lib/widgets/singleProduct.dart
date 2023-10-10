@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/widgets/counts.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
 import '../utils/colors.dart';
@@ -72,32 +73,7 @@ import '../utils/colors.dart';
                 ),
                 width4,
                 Expanded(
-                  child: Container(
-                    // color: themeColor,
-                    height: 30,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border:
-                          Border.all(color: gColor.withOpacity(0.3), width: 1),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(
-                          Icons.remove,
-                          color: themeColor,
-                          size: 15,
-                        ),
-                        Text("1"),
-                        Icon(
-                          Icons.add,
-                          color: themeColor,
-                          size: 15,
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: Counts(),
                 ),
               ],
             )
