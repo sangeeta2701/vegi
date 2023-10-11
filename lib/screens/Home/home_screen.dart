@@ -47,7 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SearchScreen(search: productProvider.getAllProductSearch,),
+                builder: (context) => SearchScreen(
+                  search: productProvider.getAllProductSearch,
+                ),
               ),
             ),
             child: CircleAvatar(
@@ -158,7 +160,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(search: productProvider.getHerbsProductDataList,),),);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SearchScreen(
+                        search: productProvider.getHerbsProductDataList,
+                      ),
+                    ),
+                  );
                 },
                 child: Text(
                   "View All",
@@ -174,23 +183,23 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: productProvider.getHerbsProductDataList
                   .map((herbsProductData) {
-                return singleProductContainer(
-                  herbsProductData.productImage,
-                  herbsProductData.productName,
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductOverviewScreen(
-                          productName: herbsProductData.productName,
-                          productImage: herbsProductData.productImage,
-                          productPrice: herbsProductData.productrice,
+                return SingleProductContainer(
+                    productImage: herbsProductData.productImage,
+                    productName: herbsProductData.productName,
+                    productId: herbsProductData.productId,
+                    productPrice: herbsProductData.productrice,
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductOverviewScreen(
+                            productName: herbsProductData.productName,
+                            productImage: herbsProductData.productImage,
+                            productPrice: herbsProductData.productrice,
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  herbsProductData.productrice,
-                );
+                      );
+                    });
               }).toList(),
               // children: [
               // singleProductContainer("assets/images/img2.png", "Fresh Basil",
@@ -255,7 +264,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(search: productProvider.getFruitsProductDataList,),),);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SearchScreen(
+                        search: productProvider.getFruitsProductDataList,
+                      ),
+                    ),
+                  );
                 },
                 child: Text(
                   "View All",
@@ -271,77 +287,25 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
                 children: productProvider.getFruitsProductDataList
                     .map((fruitProductData) {
-              return singleProductContainer(
-                fruitProductData.productImage,
-                fruitProductData.productName,
-                () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverviewScreen(
-                        productName: fruitProductData.productName,
-                        productImage: fruitProductData.productImage,
-                        productPrice: fruitProductData.productrice,
+              return SingleProductContainer(
+                  productImage: fruitProductData.productImage,
+                  productName: fruitProductData.productName,
+                  productId: fruitProductData.productId,
+                  productPrice: fruitProductData.productrice,
+                  ontap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverviewScreen(
+                          productName: fruitProductData.productName,
+                          productImage: fruitProductData.productImage,
+                          productPrice: fruitProductData.productrice,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                fruitProductData.productrice,
-              );
+                    );
+                  });
             }).toList()
-                // children: [
-                //   singleProductContainer("assets/images/img6.png", "Fresh Apple",
-                //       () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Fresh Apple",
-                //           productImage: "assets/images/img6.png",
-                //           productPrice: 150,
-                //         ),
-                //       ),
-                //     );
-                //   }, 150),
-                //   singleProductContainer(
-                //       "assets/images/img9.png", "Semi Ripe Banana", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Semi Ripe Banana",
-                //           productImage: "assets/images/img9.png",
-                //           productPrice: 50,
-                //         ),
-                //       ),
-                //     );
-                //   }, 50),
-                //   singleProductContainer("assets/images/img7.png", "Berries", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Berries",
-                //           productImage: "assets/images/img7.png",
-                //           productPrice: 200,
-                //         ),
-                //       ),
-                //     );
-                //   }, 200),
-                //   singleProductContainer("assets/images/img8.png", "Watermelon",
-                //       () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Watermelon",
-                //           productImage: "assets/images/img8.png",
-                //           productPrice: 70,
-                //         ),
-                //       ),
-                //     );
-                //   }, 70),
-                // ],
+                
                 ),
           ),
           height20,
@@ -355,7 +319,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen(search: productProvider.getRootProductDataList,),),);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SearchScreen(
+                        search: productProvider.getRootProductDataList,
+                      ),
+                    ),
+                  );
                 },
                 child: Text(
                   "View All",
@@ -371,11 +342,13 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
                 children: productProvider.getRootProductDataList
                     .map((rootProductData) {
-              return singleProductContainer(
-                rootProductData.productImage,
-                rootProductData.productName,
-                () {
-                  Navigator.push(
+              return SingleProductContainer(
+                  productImage: rootProductData.productImage,
+                  productName: rootProductData.productName,
+                  productId: rootProductData.productId,
+                  productPrice: rootProductData.productrice,
+                  ontap: () {
+                    Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => ProductOverviewScreen(
@@ -385,76 +358,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   );
-                },
-                rootProductData.productrice,
-              );
+                  });
+              
             }).toList()
-                // children: [
-                //   singleProductContainer(
-                //       "assets/images/img10.png", "Red Beetroot", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Red Beetroot",
-                //           productImage: "assets/images/img10.png",
-                //           productPrice: 120,
-                //         ),
-                //       ),
-                //     );
-                //   }, 120),
-                //   singleProductContainer("assets/images/img13.png", "Potato", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Potato",
-                //           productImage: "assets/images/img13.png",
-                //           productPrice: 20,
-                //         ),
-                //       ),
-                //     );
-                //   }, 20),
-                //   singleProductContainer(
-                //       "assets/images/img12.png", "Fresh Radish", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Fresh Radish",
-                //           productImage: "assets/images/img12.png",
-                //           productPrice: 30,
-                //         ),
-                //       ),
-                //     );
-                //   }, 30),
-                //   singleProductContainer(
-                //       "assets/images/img11.png", "Fresh Carrots", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Fresh Carrots",
-                //           productImage: "assets/images/img11.png",
-                //           productPrice: 15,
-                //         ),
-                //       ),
-                //     );
-                //   }, 15),
-                //   singleProductContainer("assets/images/img14.png", "Green Onion",
-                //       () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => ProductOverviewScreen(
-                //           productName: "Green Onion",
-                //           productImage: "assets/images/img14.png",
-                //           productPrice: 50,
-                //         ),
-                //       ),
-                //     );
-                //   }, 50),
-                // ],
+               
                 ),
           ),
         ]),

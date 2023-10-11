@@ -4,8 +4,16 @@ import 'package:food_app/widgets/sizedBox.dart';
 
 import '../utils/colors.dart';
 
+class SingleProductContainer extends StatelessWidget {
+  const SingleProductContainer({super.key,required this.productImage,required this.productName,required this.productId,required this.productPrice,required this.ontap});
+  final String productImage;
+  final String productName;
+  final String productId;
+  final int productPrice;
+  final VoidCallback ontap;
 
- Widget singleProductContainer(String imag, String name, VoidCallback ontap,int price) {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8),
       height: 230,
@@ -23,18 +31,18 @@ import '../utils/colors.dart';
               onTap: ontap,
               child: Center(
                   child: Image.network(
-                imag,
+                productImage,
                 height: 120,
               )),
             ),
             Text(
-              name,
+              productName,
               style: TextStyle(
                   fontSize: 16, color: bColor, fontWeight: FontWeight.w500),
             ),
             height4,
             Text(
-              "$price\$ /50 Gram",
+              "$productPrice\$ /50 Gram",
               style: TextStyle(
                   fontSize: 14, color: gColor, fontWeight: FontWeight.w400),
             ),
@@ -73,7 +81,12 @@ import '../utils/colors.dart';
                 ),
                 width4,
                 Expanded(
-                  child: Counts(),
+                  child: Counts(
+                      productName: productName,
+                      productImage: productImage,
+                      productId: productId,
+                      // productQuantity: "1",
+                      productPrice: productPrice),
                 ),
               ],
             )
@@ -82,3 +95,4 @@ import '../utils/colors.dart';
       ),
     );
   }
+}
