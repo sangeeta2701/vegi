@@ -5,12 +5,17 @@ import 'package:provider/provider.dart';
 import '../utils/colors.dart';
 
 class Counts extends StatefulWidget {
-  const Counts({super.key,required this.productName,required this.productImage,required this.productId,required this.productPrice});
- final String productName;
- final String productImage;
- final String productId;
+  const Counts(
+      {super.key,
+      required this.productName,
+      required this.productImage,
+      required this.productId,
+      required this.productPrice});
+  final String productName;
+  final String productImage;
+  final String productId;
 //  final String productQuantity;
- final int productPrice;
+  final int productPrice;
 
   @override
   State<Counts> createState() => _CountsState();
@@ -22,6 +27,7 @@ class _CountsState extends State<Counts> {
 
   @override
   Widget build(BuildContext context) {
+    // print(widget.productId);
     ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
       // color: themeColor,
@@ -75,8 +81,8 @@ class _CountsState extends State<Counts> {
                   setState(() {
                     isTrue = true;
                   });
-                  // reviewCartProvider.addReviewCartData(
-                  //     cartId, cartName, cartImage, cartPrice, cartQuantity);
+                  reviewCartProvider.addReviewCartData(
+                      widget.productId, widget.productName, widget.productImage, widget.productPrice, count);
                 },
                 child: Text(
                   "ADD",
