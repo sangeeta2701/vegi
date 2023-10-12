@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../models/review_cart_model.dart';
 
 class ReviewCartProvider with ChangeNotifier {
@@ -65,6 +64,7 @@ class ReviewCartProvider with ChangeNotifier {
         .doc(FirebaseAuth.instance.currentUser?.uid)
         .collection("YourReviewCart")
         .get();
+    // ignore: avoid_function_literals_in_foreach_calls
     reviewCartValue.docs.forEach((element) {
       ReviewCartModel reviewCartModel = ReviewCartModel(
         cartId: element.get("cartId"),

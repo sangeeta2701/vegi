@@ -70,7 +70,9 @@ class _SearchScreenState extends State<SearchScreen> {
                   productImage: data.productImage,
                   isBool: false,
                   productName: data.productName,
-                  productPrice: data.productrice);
+                  productPrice: data.productrice,
+                  productId: data.productId,
+                  productQuantity: 1,);
             }).toList(),
           ),
           // SingleItem(

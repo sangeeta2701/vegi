@@ -4,11 +4,20 @@ import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
 class SingleItem extends StatelessWidget {
-  const SingleItem({super.key, required this.productImage, required this.isBool,required this.productName,required this.productPrice});
+  const SingleItem(
+      {super.key,
+      required this.productImage,
+      required this.isBool,
+      required this.productName,
+      required this.productPrice,
+      required this.productId,
+      required this.productQuantity});
   final String productImage;
   final bool isBool;
-  final  String productName;
+  final String productName;
   final int productPrice;
+  final  String productId;
+  final  int productQuantity;
 
   @override
   Widget build(BuildContext context) {

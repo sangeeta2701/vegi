@@ -23,7 +23,11 @@ class ReviewCartScreen extends StatelessWidget {
           style: TextStyle(color: bColor, fontSize: 18),
         ),
       ),
-      body: ListView.builder(
+      body:reviewCartProvider.getReviewCartDataList.isEmpty
+          ? Center(
+              child: Text("NO DATA"),
+            )
+          :ListView.builder(
           itemCount: reviewCartProvider.getReviewCartDataList.length,
           itemBuilder: (context, index) {
             ReviewCartModel data =
@@ -35,7 +39,9 @@ class ReviewCartScreen extends StatelessWidget {
                     productImage: data.cartImage,
                     isBool: true,
                     productName: data.cartName,
-                    productPrice: data.cartPrice),
+                    productPrice: data.cartPrice,
+                    productId: data.cartId,
+                    productQuantity: data.cartQuantity,),
               ],
             );
           }),
