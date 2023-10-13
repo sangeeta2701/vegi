@@ -11,13 +11,14 @@ class SingleItem extends StatelessWidget {
       required this.productName,
       required this.productPrice,
       required this.productId,
-      required this.productQuantity});
+      required this.productQuantity,required this.ondelete});
   final String productImage;
   final bool isBool;
   final String productName;
   final int productPrice;
-  final  String productId;
-  final  int productQuantity;
+  final String productId;
+  final int productQuantity;
+  final VoidCallback ondelete;
 
   @override
   Widget build(BuildContext context) {
@@ -135,10 +136,13 @@ class SingleItem extends StatelessWidget {
                       child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Icon(
-                          CupertinoIcons.delete,
-                          color: gColor,
-                          size: 25,
+                        InkWell(
+                          onTap: ondelete,
+                          child: Icon(
+                            CupertinoIcons.delete,
+                            color: gColor,
+                            size: 25,
+                          ),
                         ),
                         height4,
                         Container(

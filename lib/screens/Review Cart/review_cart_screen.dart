@@ -7,12 +7,48 @@ import 'package:provider/provider.dart';
 
 import '../../widgets/single_item.dart';
 
+// ignore: must_be_immutable
 class ReviewCartScreen extends StatelessWidget {
-  const ReviewCartScreen({super.key});
+  // const ReviewCartScreen({super.key});
+  late ReviewCartProvider reviewCartProvider;
+  showCartAlertDialog(BuildContext context, ReviewCartModel delete) {
+    // set up the buttons
+    Widget cancelButton = ElevatedButton(
+      child: Text("No"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+    Widget continueButton = ElevatedButton(
+      child: Text("Yes"),
+      onPressed: () {
+        reviewCartProvider.reviewCartDataDelete(delete.cartId);
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Cart Product"),
+      content: Text("Are you  sure you want to delete this product?"),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    ReviewCartProvider reviewCartProvider = Provider.of(context);
+    reviewCartProvider = Provider.of(context);
     reviewCartProvider.getReviewCartData();
     return Scaffold(
       appBar: AppBar(
@@ -23,28 +59,32 @@ class ReviewCartScreen extends StatelessWidget {
           style: TextStyle(color: bColor, fontSize: 18),
         ),
       ),
-      body:reviewCartProvider.getReviewCartDataList.isEmpty
+      body: reviewCartProvider.getReviewCartDataList.isEmpty
           ? Center(
               child: Text("NO DATA"),
             )
-          :ListView.builder(
-          itemCount: reviewCartProvider.getReviewCartDataList.length,
-          itemBuilder: (context, index) {
-            ReviewCartModel data =
-                reviewCartProvider.getReviewCartDataList[index];
-            return Column(
-              children: [
-                height12,
-                SingleItem(
-                    productImage: data.cartImage,
-                    isBool: true,
-                    productName: data.cartName,
-                    productPrice: data.cartPrice,
-                    productId: data.cartId,
-                    productQuantity: data.cartQuantity,),
-              ],
-            );
-          }),
+          : ListView.builder(
+              itemCount: reviewCartProvider.getReviewCartDataList.length,
+              itemBuilder: (context, index) {
+                ReviewCartModel data =
+                    reviewCartProvider.getReviewCartDataList[index];
+                return Column(
+                  children: [
+                    height12,
+                    SingleItem(
+                      productImage: data.cartImage,
+                      isBool: true,
+                      productName: data.cartName,
+                      productPrice: data.cartPrice,
+                      productId: data.cartId,
+                      productQuantity: data.cartQuantity,
+                      ondelete: () {
+                        showCartAlertDialog(context, data);
+                      },
+                    ),
+                  ],
+                );
+              }),
       // body: ListView(
       //   children: [
       //     height12,
