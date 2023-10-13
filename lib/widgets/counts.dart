@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/provider/review_cart_provider.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +27,27 @@ class _CountsState extends State<Counts> {
   int count = 1;
   bool isTrue = false;
 
+  getAddAndQuantity() {
+    FirebaseFirestore.instance
+        .collection("ReviewCart")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .collection("YourReviewCart")
+        .doc(widget.productId)
+        .get()
+        .then((value) {
+      if (this.mounted) {
+        if(value.exists){
+          setState(() {
+          isTrue = value.get("isAdd");
+        });
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    getAddAndQuantity();
     // print(widget.productId);
     ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
@@ -82,7 +103,12 @@ class _CountsState extends State<Counts> {
                     isTrue = true;
                   });
                   reviewCartProvider.addReviewCartData(
-                      widget.productId, widget.productName, widget.productImage, widget.productPrice, count);
+                    widget.productId,
+                    widget.productName,
+                    widget.productImage,
+                    widget.productPrice,
+                    count,
+                  );
                 },
                 child: Text(
                   "ADD",
