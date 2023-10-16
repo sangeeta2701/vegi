@@ -3,8 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/provider/review_cart_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../utils/colors.dart';
+
+
 
 class Counts extends StatefulWidget {
   const Counts(
@@ -24,7 +25,7 @@ class Counts extends StatefulWidget {
 }
 
 class _CountsState extends State<Counts> {
-  int count = 1;
+  int count = 0;
   bool isTrue = false;
 
   getAddAndQuantity() {
@@ -35,11 +36,17 @@ class _CountsState extends State<Counts> {
         .doc(widget.productId)
         .get()
         .then((value) {
-      if (this.mounted) {
-        if(value.exists){
+      if (mounted) {
+        if (value.exists) {
           setState(() {
-          isTrue = value.get("isAdd");
-        });
+            count = value.get("cartQuantity");
+            isTrue = value.get("isAdd");
+          }
+              // setState(() {
+              //   count = value.get("cartQuantity");
+              //   isTrue = value.get("isAdd");
+              // }
+              );
         }
       }
     });
@@ -64,15 +71,22 @@ class _CountsState extends State<Counts> {
               children: [
                 InkWell(
                   onTap: () {
-                    if (count > 1) {
-                      setState(() {
-                        count--;
-                      });
-                    }
                     if (count == 1) {
                       setState(() {
                         isTrue = false;
                       });
+                      reviewCartProvider.reviewCartDataDelete(widget.productId);
+                    }
+                    if (count > 1) {
+                      setState(() {
+                        count--;
+                      });
+                      reviewCartProvider.updateReviewCartData(
+                        widget.productId,
+                        widget.productName,
+                        widget.productImage,
+                        widget.hashCode,
+                        count);
                     }
                   },
                   child: Icon(
@@ -87,6 +101,12 @@ class _CountsState extends State<Counts> {
                     setState(() {
                       count++;
                     });
+                    reviewCartProvider.updateReviewCartData(
+                        widget.productId,
+                        widget.productName,
+                        widget.productImage,
+                        widget.hashCode,
+                        count);
                   },
                   child: Icon(
                     Icons.add,
