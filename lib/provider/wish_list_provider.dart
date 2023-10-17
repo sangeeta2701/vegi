@@ -5,20 +5,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class WishListProvider with ChangeNotifier{
-  void addReviewCartData(String wishListId, String wishListName, String wishListImage,
+  void addWishListData(String wishListId, String wishListName, String wishListImage,
       int wishListPrice, int wishListQuantity,) async {
     FirebaseFirestore.instance
-        .collection("ReviewCart")
+        .collection("Wishlist")
         .doc(FirebaseAuth.instance.currentUser?.uid)
-        .collection("YourReviewCart")
+        .collection("YourWishlist")
         .doc(wishListId)
         .set(
       {
-        "cartId": wishListId,
-        "cartName": wishListName,
-        "cartImage": wishListImage,
-        "cartPrice": wishListPrice,
-        "cartQuantity": wishListQuantity,
+        "wishListId": wishListId,
+        "wishListName": wishListName,
+        "wishListImage": wishListImage,
+        "wishListPrice": wishListPrice,
+        "wishListQuantity": wishListQuantity,
         "wishList":true
       },
     );

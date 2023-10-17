@@ -11,10 +11,14 @@ class ProductOverviewScreen extends StatefulWidget {
       {super.key,
       required this.productName,
       required this.productImage,
-      required this.productPrice});
+      required this.productPrice,
+      required this.productId,
+      });
   final String productName;
   final String productImage;
   final int productPrice;
+  final String productId;
+  // final int productQuantity;
 
   @override
   State<ProductOverviewScreen> createState() => _ProductOverviewScreenState();
@@ -22,6 +26,7 @@ class ProductOverviewScreen extends StatefulWidget {
 
 class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   SigninCharacter _character = SigninCharacter.fill;
+  bool wishlistBool = false;
   @override
   Widget build(BuildContext context) {
     WishListProvider wishListProvider = Provider.of(context);
@@ -35,10 +40,23 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
         ),
       ),
       bottomNavigationBar: Row(children: [
-        bottomNavigationBar(
-            gColor, bColor, wColor, "Add To Wishlist", Icons.favorite_border),
+        bottomNavigationBar(gColor, bColor, wColor, "Add To Wishlist",
+            wishlistBool == false ? Icons.favorite_border : Icons.favorite, () {
+          setState(() {
+            wishlistBool = !wishlistBool;
+          });
+          if (wishlistBool == true) {
+            wishListProvider.addWishListData(
+                widget.productId,
+                widget.productName,
+                widget.productImage,
+                widget.productPrice,
+                2
+                );
+          }
+        }),
         bottomNavigationBar(wColor, themeColor, bColor, "Go To Cart",
-            Icons.shopping_cart_outlined)
+            Icons.shopping_cart_outlined, () {})
       ]),
       body: Column(
         children: [
@@ -154,25 +172,28 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   }
 
   Widget bottomNavigationBar(Color iconColor, Color backgriundColor,
-      Color color, String title, IconData icon) {
+      Color color, String title, IconData icon, VoidCallback ontap) {
     return Expanded(
-      child: Container(
-        padding: EdgeInsets.all(20),
-        color: backgriundColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              size: 17,
-              color: iconColor,
-            ),
-            width4,
-            Text(
-              title,
-              style: TextStyle(color: color),
-            )
-          ],
+      child: GestureDetector(
+        onTap: ontap,
+        child: Container(
+          padding: EdgeInsets.all(20),
+          color: backgriundColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 20,
+                color: iconColor,
+              ),
+              width4,
+              Text(
+                title,
+                style: TextStyle(color: color),
+              )
+            ],
+          ),
         ),
       ),
     );

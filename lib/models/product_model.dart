@@ -3,10 +3,13 @@ class ProductModel {
   String productImage;
   String productId;
   int productrice;
+  // int productQuantity;
+
 
   ProductModel(
       {required this.productName,
       required this.productImage,
       required this.productrice,
-      required this.productId});
+      required this.productId,
+      });
 }
