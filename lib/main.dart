@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/provider/product_provider.dart';
 import 'package:food_app/provider/review_cart_provider.dart';
 import 'package:food_app/provider/user_provider.dart';
+import 'package:food_app/provider/wish_list_provider.dart';
 // import 'package:food_app/auth/signin_screen.dart';
 import 'package:food_app/screens/Home/home_screen.dart';
 import 'package:food_app/utils/colors.dart';
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ProductProvider>(create: (context) => ProductProvider(),),
         ChangeNotifierProvider<UserProvider>(create: (context) => UserProvider(),),
         ChangeNotifierProvider<ReviewCartProvider>(create: (context) => ReviewCartProvider(),),
+        ChangeNotifierProvider<WishListProvider>(create: (context) => WishListProvider(),),
+
 
 
       ],

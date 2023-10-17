@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/provider/wish_list_provider.dart';
 import 'package:food_app/utils/colors.dart';
 import 'package:food_app/widgets/sizedBox.dart';
+import 'package:provider/provider.dart';
 
 enum SigninCharacter { fill, outline }
 
 class ProductOverviewScreen extends StatefulWidget {
   const ProductOverviewScreen(
-      {super.key, required this.productName, required this.productImage,required this.productPrice});
+      {super.key,
+      required this.productName,
+      required this.productImage,
+      required this.productPrice});
   final String productName;
   final String productImage;
   final int productPrice;
@@ -19,6 +24,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   SigninCharacter _character = SigninCharacter.fill;
   @override
   Widget build(BuildContext context) {
+    WishListProvider wishListProvider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

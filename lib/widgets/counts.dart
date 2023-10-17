@@ -25,7 +25,7 @@ class Counts extends StatefulWidget {
 }
 
 class _CountsState extends State<Counts> {
-  int count = 0;
+  int count = 1;
   bool isTrue = false;
 
   getAddAndQuantity() {
@@ -77,7 +77,7 @@ class _CountsState extends State<Counts> {
                       });
                       reviewCartProvider.reviewCartDataDelete(widget.productId);
                     }
-                    if (count > 1) {
+                    else if (count > 1) {
                       setState(() {
                         count--;
                       });
