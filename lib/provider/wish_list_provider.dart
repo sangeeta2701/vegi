@@ -49,4 +49,7 @@ class WishListProvider with ChangeNotifier {
     wishList = newList;
     notifyListeners();
   }
+  List<ProductModel> get getWishList{
+    return wishList;
+  }
 }
