@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/provider/wish_list_provider.dart';
 import 'package:food_app/utils/colors.dart';
@@ -7,13 +9,13 @@ import 'package:provider/provider.dart';
 enum SigninCharacter { fill, outline }
 
 class ProductOverviewScreen extends StatefulWidget {
-  const ProductOverviewScreen(
-      {super.key,
-      required this.productName,
-      required this.productImage,
-      required this.productPrice,
-      required this.productId,
-      });
+  const ProductOverviewScreen({
+    super.key,
+    required this.productName,
+    required this.productImage,
+    required this.productPrice,
+    required this.productId,
+  });
   final String productName;
   final String productImage;
   final int productPrice;
@@ -27,8 +29,27 @@ class ProductOverviewScreen extends StatefulWidget {
 class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   SigninCharacter _character = SigninCharacter.fill;
   bool wishlistBool = false;
+
+  getWishlistBool() {
+    FirebaseFirestore.instance
+        .collection("Wishlist")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .collection("YourWishlist")
+        .get()
+        .then((value) {
+      value.docs.forEach((element) {
+        if (this.mounted) {
+          setState(() {
+            wishlistBool = element.get("Wishlist");
+          });
+        }
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    // getWishlistBool();
     WishListProvider wishListProvider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -51,8 +72,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 widget.productName,
                 widget.productImage,
                 widget.productPrice,
-                2
-                );
+                2);
           }
         }),
         bottomNavigationBar(wColor, themeColor, bColor, "Go To Cart",
