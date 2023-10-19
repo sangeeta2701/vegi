@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/screens/Profile/my_profile_screen.dart';
 import 'package:food_app/screens/Review%20Cart/review_cart_screen.dart';
+import 'package:food_app/screens/wishList/wishlist_screen.dart';
 import 'package:food_app/widgets/sizedBox.dart';
 
 import '../utils/colors.dart';
@@ -81,7 +82,10 @@ class DrawerSide extends StatelessWidget {
               title: "Rating & Review",
               ontap: () {}),
           drawerItemList(
-              icon: Icons.favorite_border, title: "Wishlist", ontap: () {}),
+              icon: Icons.favorite_border, title: "Wishlist", ontap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>WishlistScreen()));
+
+              }),
           drawerItemList(
               icon: Icons.feed_outlined,
               title: "Raise a Complaint",

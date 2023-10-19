@@ -9,17 +9,17 @@ import '../../widgets/single_item.dart';
 // ignore: must_be_immutable
 class WishlistScreen extends StatefulWidget {
   // const WishlistScreen({super.key});
- 
 
   @override
   State<WishlistScreen> createState() => _WishlistScreenState();
 }
 
 class _WishlistScreenState extends State<WishlistScreen> {
-   late WishListProvider wishListProvider;
+  late WishListProvider wishListProvider;
   @override
   Widget build(BuildContext context) {
     wishListProvider = Provider.of(context);
+    wishListProvider.getwishListData();
     // reviewCartProvider.getReviewCartData();
     return Scaffold(
       appBar: AppBar(
@@ -33,8 +33,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
       body: ListView.builder(
           itemCount: wishListProvider.getWishList.length,
           itemBuilder: (context, index) {
-            ProductModel data =
-                wishListProvider.getWishList[index];
+            ProductModel data = wishListProvider.getWishList[index];
             return Column(
               children: [
                 height12,
@@ -50,7 +49,6 @@ class _WishlistScreenState extends State<WishlistScreen> {
               ],
             );
           }),
-      
     );
   }
 }

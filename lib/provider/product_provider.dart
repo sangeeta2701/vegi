@@ -12,12 +12,11 @@ class ProductProvider with ChangeNotifier {
   List<ProductModel> search = [];
   productModels(QueryDocumentSnapshot element) {
     productModel = ProductModel(
-        productName: element.get("productName"),
-        productImage: element.get("productImage"),
-        productrice: element.get("productPrice"),
-        productId:
-    element.get("productId"),
-    productQuantity: element.get("productQuantity")
+        productName:element.data().toString().contains('productName')? element.get("productName"):"",
+        productImage:element.data().toString().contains('productImage')?  element.get("productImage"):"",
+        productrice:element.data().toString().contains('productPrice')? element.get("productPrice"):0,
+        productId:element.data().toString().contains('productId')?element.get("productId"):"",
+    productQuantity:element.data().toString().contains('productQuantity')? element.get("productQuantity"):0
     );
     
     search.add(productModel);
@@ -28,6 +27,7 @@ class ProductProvider with ChangeNotifier {
     List<ProductModel> newList = [];
     QuerySnapshot value =
         await FirebaseFirestore.instance.collection("HerbsProduct").get();
+    // ignore: avoid_function_literals_in_foreach_calls
     value.docs.forEach((element) {
       productModels(element);
       // print(element.data());
@@ -51,6 +51,7 @@ class ProductProvider with ChangeNotifier {
     List<ProductModel> newFruitList = [];
     QuerySnapshot value =
         await FirebaseFirestore.instance.collection("FruitsProducts").get();
+    // ignore: avoid_function_literals_in_foreach_calls
     value.docs.forEach((element) {
       productModels(element);
       // print(element.data());
@@ -73,6 +74,7 @@ class ProductProvider with ChangeNotifier {
     List<ProductModel> newRootList = [];
     QuerySnapshot value =
         await FirebaseFirestore.instance.collection("RootProducts").get();
+    // ignore: avoid_function_literals_in_foreach_calls
     value.docs.forEach((element) {
       productModels(element);
       // print(element.data());

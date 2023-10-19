@@ -39,11 +39,11 @@ class WishListProvider with ChangeNotifier {
         .get();
     value.docs.forEach((element) {
       ProductModel productModel = ProductModel(
-          productName: element.get("wishListName"),
-          productImage: element.get("wishListImage"),
-          productrice: element.get("wishListPrice"),
-          productId: element.get("wishListId"),
-          productQuantity: element.get("wishListQuantity"));
+          productName:element.data().toString().contains('wishListName') ? element.get("wishListName"):"",
+          productImage:element.data().toString().contains('wishListImage') ? element.get("wishListImage"):"",
+          productrice:element.data().toString().contains('wishListPrice') ? element.get("wishListPrice"):0,
+          productId:element.data().toString().contains('wishListId') ? element.get("wishListId"):"",
+          productQuantity:element.data().toString().contains('wishListQuantity')? element.get("wishListQuantity"):0);
       newList.add(productModel);
     });
     wishList = newList;
