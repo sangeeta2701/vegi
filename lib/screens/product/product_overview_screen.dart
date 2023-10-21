@@ -30,27 +30,30 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   SigninCharacter _character = SigninCharacter.fill;
   bool wishlistBool = false;
 
-  getWishlistBool() {
+  getWishtListBool() {
     FirebaseFirestore.instance
-        .collection("Wishlist")
+        .collection("WishList")
         .doc(FirebaseAuth.instance.currentUser?.uid)
-        .collection("YourWishlist")
+        .collection("YourWishList")
+        // .doc(widget.productId)
         .get()
-        .then((value) {
-      value.docs.forEach((element) {
-        if (this.mounted) {
-          setState(() {
-            wishlistBool = element.get("Wishlist");
-          });
-        }
-      });
-    });
+        .then((value) => {
+              value.docs.forEach((element) {
+                if (this.mounted) {
+                  setState(
+                    () {
+                      wishlistBool = element.get("wishList");
+                    },
+                  );
+                }
+              })
+            });
   }
 
   @override
   Widget build(BuildContext context) {
-    // getWishlistBool();
     WishListProvider wishListProvider = Provider.of(context);
+    getWishtListBool();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -61,8 +64,10 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
         ),
       ),
       bottomNavigationBar: Row(children: [
+       
         bottomNavigationBar(gColor, bColor, wColor, "Add To Wishlist",
-            wishlistBool == false ? Icons.favorite_border : Icons.favorite, () {
+            wishlistBool == false ? Icons.favorite_outline : Icons.favorite,
+            () {
           setState(() {
             wishlistBool = !wishlistBool;
           });
@@ -73,6 +78,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 widget.productImage,
                 widget.productPrice,
                 2);
+           
+          } else {
+            // wishListProvider.deleteWishtList(widget.productId);
           }
         }),
         bottomNavigationBar(wColor, themeColor, bColor, "Go To Cart",

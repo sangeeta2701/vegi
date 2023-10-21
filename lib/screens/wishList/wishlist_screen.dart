@@ -19,7 +19,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
   @override
   Widget build(BuildContext context) {
     wishListProvider = Provider.of(context);
-    wishListProvider.getwishListData();
+    wishListProvider.getWishtListData();
     // reviewCartProvider.getReviewCartData();
     return Scaffold(
       appBar: AppBar(
