@@ -1,16 +1,8 @@
 # food_app
 
-A new Flutter project.
+A simple frontend flutter UI for vegetable shopping app.
 
-## Getting Started
+## Output
+![v1](https://github.com/sangeeta2701/vegi/assets/86039068/a2405020-45a3-4270-a76f-b3271a5befab)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![v2](https://github.com/sangeeta2701/vegi/assets/86039068/8b40bf46-c73a-40f3-8815-c327fd3ef18a)
